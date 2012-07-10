@@ -1,4 +1,4 @@
-colorscheme ron
+colorscheme wombat
 syntax on
 filetype on
 
@@ -85,7 +85,7 @@ set undodir=$HOME/.vim/undofiles
 set tags=.tags
 let g:changelog_username="Naoki NOSE"
 
-set runtimepath+=~/.vimbundle/vundle
+set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -93,6 +93,9 @@ Bundle 'Shougo/unite.vim'
 Bundle 'ZenCoding.vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-localrc'
+
+"Gtags
+let Gtags_Auto_Map = 1
 
 filetype plugin on
 
