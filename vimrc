@@ -26,9 +26,9 @@ nnoremap <C-X> :QuickRun<CR>
 inoremap <S-Enter> <End>;<CR>
 
 "Unite
-
-nnoremap ,f :Unite bookmark file file/new<CR>
-nnoremap ,u :Unite buffer file_mru<CR>
+nnoremap <Leader>b :Unite bookmark file<CR>
+nnoremap <Leader>f :UniteWithBufferDir file file/new<CR>
+nnoremap <Leader>u :Unite buffer file_mru<CR>
 
 au FileType unite setlocal iminsert=0
 au FileType unite nnoremap <buffer> <expr> <C-X> unite#do_action('start')
@@ -64,17 +64,16 @@ let g:user_zen_settings = {
 \}
 
 "auto commands
-au BufEnter * lcd %:p:h
+"au BufEnter * lcd %:p:h
 au BufEnter *.html,*.xml,*.css,*.tpl setlocal shiftwidth=2 tabstop=2
 au BufEnter *.scala setlocal tabstop=2
 au BufNewFile *.php call append(0, "<?php")
 au BufEnter *.php,*.js,*.java setlocal tabstop=4 shiftwidth=4
-
-set fencs=utf-8
+set fencs=utf-8 
 set fenc=utf-8
 set nobackup
 set noswapfile
-set enc=utf-8
+"set enc=utf-8
 set incsearch
 set ruler
 set tabstop=4
@@ -93,6 +92,8 @@ Bundle 'Shougo/unite.vim'
 Bundle 'ZenCoding.vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-localrc'
+Bundle 'thinca/vim-localrc'
+"Bundle 'delimitMate.vim'
 
 "Gtags
 let Gtags_Auto_Map = 1

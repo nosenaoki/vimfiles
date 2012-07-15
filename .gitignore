@@ -1,2 +1,4 @@
 .netrwhist
 .VimballRecord
+bundle/
+undofiles/
