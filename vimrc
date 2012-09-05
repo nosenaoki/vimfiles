@@ -98,6 +98,7 @@ Bundle 'thinca/vim-quickrun'
 "Bundle 'thinca/vim-localrc'
 Bundle 'hallettj/jslint.vim'
 "Bundle 'delimitMate.vim'
+Bundle 'derekwyatt/vim-scala'
 
 "Gtags
 let Gtags_Auto_Map = 1
