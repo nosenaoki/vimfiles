@@ -31,15 +31,16 @@ nnoremap <Leader>f :UniteWithBufferDir file file/new<CR>
 nnoremap <Leader>u :Unite buffer file_mru<CR>
 
 au FileType unite setlocal iminsert=0
-au FileType unite nnoremap <buffer> <expr> <C-X> unite#do_action('start')
-au FileType unite nnoremap <buffer> <expr> <C-S-R> unite#do_action('rename')
-au FileType unite nnoremap <buffer> <expr> <C-C> unite#do_action('copy')
-au FileType unite nnoremap <buffer> <expr> <C-W>s unite#do_action('split')
+au FileType unite nnoremap <buffer> <expr> x unite#do_action('start')
+au FileType unite nnoremap <buffer> <expr> r unite#do_action('rename')
+au FileType unite nnoremap <buffer> <expr> y unite#do_action('copy')
+au FileType unite nnoremap <buffer> <expr> s unite#do_action('split')
+au FileType unite nnoremap <buffer> <expr> v unite#do_action('vsplit')
 au FileType unite nnoremap <buffer> <expr> <C-R> unite#do_action('rec')
-au FileType unite nnoremap <buffer> <expr> <C-I> unite#do_action('insert')
+au FileType unite nnoremap <buffer> <expr> I unite#do_action('insert')
 
 "PHPUnit
-function! RunPHPUnit() 
+function! RunPHPUnit()
     let test = expand('%:p')
     let dir = fnamemodify(test, ':h')
     let boot = dir . '/Boot.php'
@@ -51,9 +52,9 @@ function! RunPHPUnit()
         let boot = dir . '/Boot.php'
     endwhile
     let cmd = 'phpunit --bootstrap ' . boot . ' ' . test
-    echo system(cmd) 
+    echo system(cmd)
 endfunction
-au BufEnter *Test.php nnoremap <buffer> <expr> <Leader>r RunPHPUnit() 
+au BufEnter *Test.php nnoremap <buffer> <expr> <Leader>r RunPHPUnit()
 
 "zencoding
 let g:user_zen_settings = {
@@ -65,11 +66,13 @@ let g:user_zen_settings = {
 
 "auto commands
 "au BufEnter * lcd %:p:h
-au BufEnter *.html,*.xml,*.css,*.tpl setlocal shiftwidth=2 tabstop=2
+au BufEnter *.html,*.xml,*.css,*.tpl setlocal shiftwidth=2 tabstop=2  
 au BufEnter *.scala setlocal tabstop=2
 au BufNewFile *.php call append(0, "<?php")
 au BufEnter *.php,*.js,*.java setlocal tabstop=4 shiftwidth=4
-set fencs=utf-8 
+au BufWritePre *.js,*.php :%s/\s\+$//e
+
+set fencs=utf-8
 set fenc=utf-8
 set nobackup
 set noswapfile
@@ -79,7 +82,7 @@ set ruler
 set tabstop=4
 set shiftwidth=4
 
-set undofile 
+set undofile
 set undodir=$HOME/.vim/undofiles
 set tags=.tags
 let g:changelog_username="Naoki NOSE"
@@ -89,10 +92,11 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimshell'
 Bundle 'ZenCoding.vim'
 Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-localrc'
-Bundle 'thinca/vim-localrc'
+"Bundle 'thinca/vim-localrc'
+Bundle 'hallettj/jslint.vim'
 "Bundle 'delimitMate.vim'
 
 "Gtags
