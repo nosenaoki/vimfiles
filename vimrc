@@ -66,7 +66,7 @@ let g:user_zen_settings = {
 
 "auto commands
 "au BufEnter * lcd %:p:h
-au BufEnter *.html,*.xml,*.css,*.tpl setlocal shiftwidth=2 tabstop=2  
+au BufEnter *.html,*.xml,*.css,*.tpl,*.scala setlocal shiftwidth=2 tabstop=2 
 au BufEnter *.scala setlocal tabstop=2
 au BufNewFile *.php call append(0, "<?php")
 au BufEnter *.php,*.js,*.java setlocal tabstop=4 shiftwidth=4
@@ -86,6 +86,7 @@ set undofile
 set undodir=$HOME/.vim/undofiles
 set tags=.tags
 let g:changelog_username="Naoki NOSE"
+let g:vimfiler_as_default_explorer = 1
 
 set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -93,12 +94,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimshell'
+Bundle 'Shougo/vimfiler'
 Bundle 'ZenCoding.vim'
 Bundle 'thinca/vim-quickrun'
 "Bundle 'thinca/vim-localrc'
 Bundle 'hallettj/jslint.vim'
 "Bundle 'delimitMate.vim'
-Bundle 'derekwyatt/vim-scala'
+"Bundle 'rosstimson/scala-vim-support'
 
 "Gtags
 let Gtags_Auto_Map = 1
