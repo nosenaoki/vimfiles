@@ -107,6 +107,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+NeoBundle 'fatih/vim-go'
+NeoBundle 'Shougo/neocomplcache.vim'
 
 if executable('ag')
   let g:unite_source_rec_async_command='ag --nocolor --nogroup --skip-vcs-ignores --ignore ".git" --ignore ".hg" --hidden -g ""'
@@ -121,8 +123,15 @@ call neobundle#end()
 "Gtags
 let Gtags_Auto_Map = 1
 
-colorscheme solarized
-filetype plugin indent on
 
 NeoBundleCheck
 
+filetype plugin indent on
+set background=dark
+colorscheme solarized
+
+"NeoComplecache
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
