@@ -7,6 +7,7 @@ set nobackup
 set noswapfile
 set hidden
 set smartindent
+set completeopt=menu
 
 "command line key mapping
 cnoremap <C-A> <Home>
@@ -23,6 +24,7 @@ nnoremap <C-X> :QuickRun<CR>
 
 "smart semicolon
 inoremap <S-Enter> <End>;<CR>
+inoremap <C-Space> <C-X><C-O>
 
 "Unite
 "nnoremap <Leader>b :Unite bookmark file<CR>
