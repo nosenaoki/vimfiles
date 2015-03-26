@@ -64,6 +64,7 @@ nnoremap <C-X> :QuickRun<CR>
 
 "smart semicolon
 inoremap <S-Enter> <End>;<CR>
+inoremap <C-Space> <C-X><C-O>
 
 "VimFiler
 nnoremap <Leader>f :VimFilerBufferDir<CR>
