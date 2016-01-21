@@ -15,7 +15,9 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'hallettj/jslint.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'hallettj/jslint.vim'
 "Bundle 'marijnh/tern_for_vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
@@ -31,6 +33,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'fatih/vim-go'
 NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Rykka/riv.vim'
 
 call neobundle#end()
 
@@ -135,6 +138,16 @@ endif
 let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 "vim-go
-
 au FileType go nnoremap <buffer> <C-I> :GoImport 
+au FileType go nnoremap <buffer> <C-X> :GoRun<CR>
+au FileType go nnoremap <buffer> <C-R> :GoRename<CR>
+au FileType go nnoremap <buffer> <C-B> :GoBuild<CR>
+au FileType go nnoremap <buffer> <C-D> :GoDoc<CR>
+au FileType go setl noexpandtab
 
+"riv.vim
+let g:riv_highlight_code  = 'lua,python,cpp,javascript,vim,sh,php'
+
+"syntastic
+let g:syntastic_php_checkers = ['php']
+let g:syntastic_html_tidy_exec = 'tidy5'
