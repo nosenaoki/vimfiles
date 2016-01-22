@@ -32,6 +32,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'fatih/vim-go'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Rykka/riv.vim'
 
@@ -75,7 +76,6 @@ let g:vimfiler_as_default_explorer = 1
 
 "Unite
 nnoremap <Leader>u :Unite file_mru<CR>
-nnoremap <Leader>r :UniteResume<CR>
 
 let g:unite_enable_start_insert=1
 
@@ -144,6 +144,33 @@ au FileType go nnoremap <buffer> <C-R> :GoRename<CR>
 au FileType go nnoremap <buffer> <C-B> :GoBuild<CR>
 au FileType go nnoremap <buffer> <C-D> :GoDoc<CR>
 au FileType go setl noexpandtab
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 "riv.vim
 let g:riv_highlight_code  = 'lua,python,cpp,javascript,vim,sh,php'
