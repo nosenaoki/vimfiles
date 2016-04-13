@@ -10,6 +10,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'gmarik/vundle'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neomru.vim'
@@ -76,6 +77,7 @@ let g:vimfiler_as_default_explorer = 1
 
 "Unite
 nnoremap <Leader>u :Unite file_mru<CR>
+nnoremap <Leader>o :Unite outline<CR>
 
 let g:unite_enable_start_insert=1
 
@@ -108,6 +110,7 @@ au BufEnter *.php,*.js,*.java setlocal tabstop=4 shiftwidth=4
 
 set fencs=utf-8
 set fenc=utf-8
+set enc=utf-8
 set nobackup
 set noswapfile
 "set enc=utf-8
@@ -142,7 +145,8 @@ au FileType go nnoremap <buffer> <C-I> :GoImport
 au FileType go nnoremap <buffer> <C-X> :GoRun<CR>
 au FileType go nnoremap <buffer> <C-R> :GoRename<CR>
 au FileType go nnoremap <buffer> <C-B> :GoBuild<CR>
-au FileType go nnoremap <buffer> <C-D> :GoDoc<CR>
+au FileType go nnoremap <buffer> <C-T> :GoTest<CR>
+"au FileType go nnoremap <buffer> <C-D> :GoDoc<CR>
 au FileType go setl noexpandtab
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -178,3 +182,4 @@ let g:riv_highlight_code  = 'lua,python,cpp,javascript,vim,sh,php'
 "syntastic
 let g:syntastic_php_checkers = ['php']
 let g:syntastic_html_tidy_exec = 'tidy5'
+let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
